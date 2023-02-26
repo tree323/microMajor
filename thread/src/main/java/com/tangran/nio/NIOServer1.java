@@ -42,7 +42,7 @@ public class NIOServer1 {
                     SocketChannel ch = iterator.next();
                     try {
                         ByteBuffer requestBuffer = ByteBuffer.allocate(1024);
-
+                        // 非阻塞api的妙用
                         if (ch.read(requestBuffer) == 0) {
                             // 等于0,代表这个通道没有数据需要处理,那就待会再处理
                             continue;
